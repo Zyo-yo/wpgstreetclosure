@@ -1,0 +1,227 @@
+/******w**************
+    
+    Assignment 4
+    Name: Cyrus Gatus
+    Date: June 18, 2026
+    Description: Queries the Winnipeg open API database for closures on either a searched address, 
+                 or the browser's current location
+
+*********************/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.5),
+            rgba(255,255,255,0.5)
+        ),
+        url("images/newpeg.jfif");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: #1f3b57;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 2.2rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+#searchCard {
+    background-color: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+#searchControls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+#search {
+    flex: 1;
+    padding: 13px;
+    font-size: 1rem;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+}
+
+#buttonGroup {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 13px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #005eb8;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #004a91;
+}
+
+#warning {
+    color: #b00020;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+#loading {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.spinner {
+    width: 28px;
+    height: 28px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #005eb8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+#dataLayout {
+    display: none;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+#centre {
+    flex: 1;
+}
+
+#mapSection {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 14px;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+#fieldset {
+    border: none;
+    background-color: white;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+legend {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-top: 55px;
+}
+
+#results p {
+    background-color: #f9fafb;
+    padding: 15px;
+    border-left: 5px solid #005eb8;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* Mobile version */
+@media screen and (max-width: 750px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    #searchControls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #buttonGroup {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #dataLayout {
+        flex-direction: column-reverse;
+    }
+
+    #mapSection {
+        position: static;
+        width: 100%;
+    }
+
+    #map {
+        height: 350px;
+    }
+
+    #fieldset {
+        padding: 15px;
+    }
+
+    #results p {
+        font-size: 0.95rem;
+    }
+}

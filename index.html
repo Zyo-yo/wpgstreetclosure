@@ -1,0 +1,60 @@
+<!-------w------------
+
+    Assignment 4
+    Name: Cyrus Gatus
+    Date: June 18, 2026
+    Description: Queries the Winnipeg open API database for closures on either a searched address, 
+                 or the browser's current location
+
+--------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS for the map leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="main.css">
+    <!-- JS for the map leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="script.js" defer></script>
+    <title>Assignment 4</title>
+</head>
+<body>
+    <header>
+        <h1>Winnipeg Street Closure Locator</h1>
+        <p>Search for current street and lane closures near an address or your current location.</p>
+    </header>
+    <main>
+        <section id="searchCard">
+            <form id="searchForm">
+                <div id="searchControls">
+                    <input type="text" id="search" placeholder="Enter address or area">
+                    <div id="buttonGroup">
+                        <button type="submit">Search Address</button>
+                        <button type="button" id="locationButton">Use My Location</button>
+                    </div>
+                </div>
+            </form>
+            <div id="loading">
+                <div class="spinner"></div>
+                <p>Loading closure data...</p>
+            </div>
+            <h2 id="warning">No closures found.</h2>
+        </section>
+        <section id="dataLayout">
+            <section id="centre">
+                <fieldset id="fieldset">
+                    <legend>Winnipeg Street/Lane Closures</legend>
+                    <div id="results"></div>
+                </fieldset>
+            </section>
+            <section id="mapSection">
+                <div id="map"></div>
+            </section>
+        </section>
+    </main>
+
+</body>
+</html>
