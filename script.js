@@ -94,7 +94,7 @@ function searchByBrowserLocation() {
 // once address is collected, we query the API and use the longitute and latitude to compare on the dataset
 function getClosuresNear(userLat, userLon) {
     markerGroup.clearLayers();
-    const radius = 0.5; //radius of the search
+    const radius = 2; //radius of the search
     const apiUrl = encodeURI(
         "https://data.winnipeg.ca/resource/h367-iifg.json?" +
         "$where=latitude IS NOT NULL AND longitude IS NOT NULL" + //WHERE clause
